@@ -7,9 +7,9 @@ use Illuminate\Support\Collection;
 
 interface AbstractUserRepository
 {
-    public function getUserDetails($user_id): Collection;
+    public function getUserDetails($user_id);
 
-    public function getUsersNearby($user): Collection;
+    public function getUsersNearby($user);
 
 
 }
