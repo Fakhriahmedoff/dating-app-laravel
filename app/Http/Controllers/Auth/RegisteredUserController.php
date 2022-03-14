@@ -22,22 +22,16 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        $token = $user->createToken('geydiyyatbaby')->accessToken;
 
-        event(new Registered($user));
+        $response = ['token' => $token];
 
-        Auth::login($user);
+        return response($response, 200);
 
-        return response()->noContent();
     }
 }

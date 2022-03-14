@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Commands;
+namespace App\Commands\Test;
 
 use App\CommandBus\Command;
 

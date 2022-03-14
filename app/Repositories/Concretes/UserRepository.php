@@ -4,16 +4,18 @@
 namespace App\Repositories\Concretes;
 
 use App\Repositories\Abstracts\AbstractUserRepository;
+use Illuminate\Support\Collection;
 
 class UserRepository implements AbstractUserRepository
 {
-    public $model;
-    public function __construct($model)
+
+
+    public function getUsersNearby($user): Collection
     {
-        $this->model = $model;
+        return $user;
     }
 
-    public function getUserDetails($user_id)
+    public function getUserDetails($user_id): Collection
     {
         $data = $this->model::findOrFail($user_id);
     }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Commands\CreateTestCommand;
+use App\Commands\Test\CreateTestCommand;
 use App\CommandBus\CommandBusInterface;
 
 class TestController extends Controller

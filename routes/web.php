@@ -18,4 +18,4 @@ Route::get('/', function () {
 });
 Route::get('comand',[\App\Http\Controllers\TestController::class,'test']);
 
-require __DIR__.'/auth.php';
+

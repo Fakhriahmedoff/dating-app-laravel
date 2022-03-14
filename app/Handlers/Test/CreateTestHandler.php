@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Handlers;
+namespace App\Handlers\Test;
 
-use App\Commands\CreateTestCommand;
+use App\Commands\Test\CreateTestCommand;
 
 class CreateTestHandler extends AbstractTestHandler
 {
