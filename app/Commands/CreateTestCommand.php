@@ -2,7 +2,7 @@
 
 namespace App\Commands;
 
-class CreateTestCommand
+class CreateTestCommand extends AbstractTestCommand
 {
 
 }

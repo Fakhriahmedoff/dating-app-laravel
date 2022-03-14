@@ -2,7 +2,11 @@
 
 namespace App\Commands;
 
-class AbstractTestCommand
+use App\CommandBus\Command;
+
+class AbstractTestCommand extends Command
 {
+
+    public ?string $test;
 
 }

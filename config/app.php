@@ -176,8 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\CommandBus\CommandBusServiceProvider::class,
-
+        App\Providers\CommandBusServiceProvider::class,
     ],
 
     /*

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace CommandBus\Middleware;
+namespace App\CommandBus\Middleware;
 
 use Exception;
 use Illuminate\Support\Facades\DB;

@@ -1,10 +1,10 @@
 <?php
 
-namespace CommandBus;
+namespace App\CommandBus;
 
 use League\Tactician\CommandBus as TacticianCommandBus;
 
-class MyCommandBus implements CommandBusInterface
+class CommandBus implements CommandBusInterface
 {
     private TacticianCommandBus $bus;
 

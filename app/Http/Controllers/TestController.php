@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use CommandBus\CommandBusInterface;
+use App\Commands\CreateTestCommand;
+use App\CommandBus\CommandBusInterface;
 
 class TestController extends Controller
 {
@@ -14,6 +15,7 @@ class TestController extends Controller
     }
 
     public function test(){
-        $this->bus->dispatch();
+        $command = new CreateTestCommand();
+        $this->bus->dispatch($command, ['test'=>'test']);
     }
 }

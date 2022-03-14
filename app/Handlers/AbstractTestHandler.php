@@ -2,7 +2,13 @@
 
 namespace App\Handlers;
 
-class AbstractTestHandler
+use App\Commands\AbstractTestCommand;
+
+abstract class AbstractTestHandler
 {
+
+    public function save(AbstractTestCommand $command){
+        return dd($command);
+    }
 
 }

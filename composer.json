@@ -12,6 +12,7 @@
         "laravel/passport": "^10.3",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "league/tactician": "^1.1",
         "skyronic/laravel-file-generator": "^0.1.13"
     },
     "require-dev": {

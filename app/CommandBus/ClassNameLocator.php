@@ -1,6 +1,6 @@
 <?php
 
-namespace CommandBus;
+namespace App\CommandBus;
 
 use League\Tactician\Handler\Locator\HandlerLocator;
 use League\Tactician\Exception\MissingHandlerException;
