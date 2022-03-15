@@ -2,36 +2,38 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\CommandBus\CommandBusInterface;
+use App\Commands\User\CreateUserCommand;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
+use App\Http\Requests\Auth\RegisterRequest;
 
 class RegisteredUserController extends Controller
 {
+
+    public CommandBusInterface $bus;
+
+    public function __construct(CommandBusInterface $bus)
+    {
+        $this->bus = $bus;
+    }
+
     /**
      * Handle an incoming registration request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-        $token = $user->createToken('geydiyyatbaby')->accessToken;
-
-        $response = ['token' => $token];
-
-        return response($response, 200);
-
+        $command = new CreateUserCommand();
+        $this->bus->dispatch($command, $request->validated());
+        $user = $command->getUser();
+        if ($user) {
+            $token = $user->createToken('geydiyyatbaby')->accessToken;
+            $response = ['token' => $token];
+            return response($response, 200);
+        }
+        return 'err';
     }
 }

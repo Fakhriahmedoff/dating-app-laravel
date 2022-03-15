@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\CommandBus\CommandBusInterface;
 use App\Http\Controllers\AbstractController;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -13,10 +14,12 @@ class UsersController extends Controller
 {
 
     public $user;
+    public CommandBusInterface $bus;
 
-    public function __construct(AbstractUserRepository $user)
+    public function __construct(AbstractUserRepository $user, CommandBusInterface $bus)
     {
         $this->user = $user;
+        $this->bus = $bus;
     }
 
     /**
