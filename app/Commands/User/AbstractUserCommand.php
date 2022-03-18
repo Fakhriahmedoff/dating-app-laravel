@@ -16,6 +16,10 @@ class AbstractUserCommand extends Command
     public ?string $profession = 'not working';
     public ?string $location = null;
     public ?string $about = null;
+    public ?string $cover = null;
+    public ?string $lng = null;
+    public ?string $ltd = null;
+    public ?User $user;
 
     /**
      * @return string
@@ -193,10 +197,6 @@ class AbstractUserCommand extends Command
         $this->ltd = $ltd;
     }
 
-    public ?string $cover = null;
-    public ?string $lng = null;
-    public ?string $ltd = null;
-    public ?User $user;
 
     /**
      * @return User|null

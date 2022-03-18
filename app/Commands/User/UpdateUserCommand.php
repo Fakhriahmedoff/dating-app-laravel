@@ -14,6 +14,9 @@ class UpdateUserCommand extends AbstractUserCommand
         $this->user = $user;
     }
 
+    /**
+     * @return User|null
+     */
     public function getUser(): ?User
     {
         return parent::getUser();
